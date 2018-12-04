@@ -101,7 +101,7 @@ void LinkedList::Insert(int data, string name, int weight) {
 	temp->name = name;
 	temp->weight = weight;
 	temp->next = nullptr;
-	printf("Inserting %i, %s ", temp->key, temp->name.c_str());
+	//printf("Inserting %i, %s", temp->key, temp->name.c_str());
 	length++;
 
 	if (!head) {
@@ -180,4 +180,21 @@ void LinkedList::PrintListName() {
 	}
 
 	return;
+}
+
+
+string LinkedList::FindLabel(int nodeID) {
+
+	NodePtr currPtr = head;
+
+	while (currPtr != nullptr) {
+		if (currPtr->key == nodeID)
+			return currPtr->name;
+
+
+		currPtr = currPtr->next;
+
+	}
+
+	return "NOTFOUND";
 }

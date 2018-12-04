@@ -10,8 +10,9 @@ class Graph
 public:
 	Graph(int numNodes, string labels, string verticies);
 	~Graph();
-	void AddEdge();
+	void AddEdge(int node1, int node2, int weight);
 	void PrintNodes();
+
 
 private:
 	LinkedList* AdjList;

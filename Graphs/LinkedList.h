@@ -24,6 +24,7 @@ public:
 	bool SearchName(string name);
 	void PrintList();
 	void PrintListName();
+	string FindLabel(int nodeID);
 
 private:
 	struct LLNode {
