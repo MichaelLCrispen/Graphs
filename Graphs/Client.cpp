@@ -31,7 +31,7 @@ int main() {
 	Graph graph(numnodes, labels, edges);
 	printf("\n");
 	graph.PrintNodes();
-	
+
 	//Pause before Program Exits
 	system("pause");
 	return 0;

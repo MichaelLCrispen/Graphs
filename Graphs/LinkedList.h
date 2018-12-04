@@ -29,6 +29,7 @@ private:
 	struct LLNode {
 		int key;
 		string name;
+		int weight;
 		NodePtr next;
 	};
 
