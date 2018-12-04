@@ -1,4 +1,3 @@
-
 #include <iostream>
 #include <cstdio>
 #include <string>
@@ -28,7 +27,7 @@ int main() {
 		edges = edges.substr(found+1, edges.length() - 1);
 	}
 
-	Graph graph(numnodes, labels, edges);
+	Graph graph(numnodes, labels, edges, "");
 	printf("\n");
 	graph.PrintNodes();
 

@@ -19,7 +19,7 @@ public:
 	LinkedList(const LinkedList& otherlinkedlist);
 	const LinkedList& operator=(const LinkedList& otherLinkedList);
 
-	void Insert(int data, string name);
+	void Insert(int data, string name, int weight);
 	bool SearchKey(int key);
 	bool SearchName(string name);
 	void PrintList();
