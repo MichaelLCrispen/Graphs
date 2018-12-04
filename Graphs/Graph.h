@@ -8,7 +8,7 @@
 class Graph
 {
 public:
-	Graph(int numNodes, string labels, string verticies,string weights);
+	Graph(int numNodes, string labels, string verticies);
 	~Graph();
 	void AddEdge();
 	void PrintNodes();

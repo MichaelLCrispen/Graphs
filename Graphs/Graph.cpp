@@ -2,7 +2,7 @@
 
 
 
-Graph::Graph(int tempnumNodes, string labels, string verticies,string weights){
+Graph::Graph(int tempnumNodes, string labels, string verticies){
 	numNodes = tempnumNodes;
 
 	size_t pos = 0;
