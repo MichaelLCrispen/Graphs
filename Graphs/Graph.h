@@ -3,6 +3,7 @@
 #define GRAPH_H
 
 #include "LinkedList.h"
+#include "Queue.h"
 #include <string>
 
 class Graph
@@ -12,6 +13,8 @@ public:
 	~Graph();
 	void AddEdge(int node1, int node2, int weight);
 	void PrintNodes();
+	void PrintEdges();
+	void BFS(int rootNode);
 
 
 private:

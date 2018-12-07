@@ -4,6 +4,7 @@
 LinkedList::LinkedList() {
 	length = 0;
 	head = nullptr;
+	currentNode = nullptr;
 }
 
 
@@ -106,6 +107,7 @@ void LinkedList::Insert(int data, string name, int weight) {
 
 	if (!head) {
 		head = temp;
+		ResetCurrent();
 		return;
 	}
 
@@ -166,7 +168,7 @@ void LinkedList::PrintList() {
 }
 
 void LinkedList::PrintListName() {
-	//Narrative: Prints the contents of the list
+	//Narrative: Prints the contents of the list by name
 	//	Pre - condition : list initialized
 	//	Post - condition : values of each node printed to screen
 
@@ -197,4 +199,26 @@ string LinkedList::FindLabel(int nodeID) {
 	}
 
 	return "NOTFOUND";
+}
+
+int LinkedList::Length() {
+	return length;
+}
+
+void LinkedList::ResetCurrent() {
+	currentNode = head;
+}
+
+int LinkedList::ReturnCurrent() {
+	if (currentNode != nullptr)
+		return currentNode->key;
+	else
+		return -1;
+}
+
+void LinkedList::CurrentNext() {
+	if (currentNode->next != nullptr)
+		currentNode = currentNode->next;
+	else
+		ResetCurrent();
 }

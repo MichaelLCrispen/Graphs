@@ -34,11 +34,20 @@ int main() {
 
 	Graph graph(numnodes, labels, edges);
 
+	printf("Printing List of Nodes and Edges: \n");
+	graph.PrintNodes();
+	printf("\n\n");
+	graph.PrintEdges();
+
+	printf("\n\nBFS using node 4 as root \n");
+	graph.BFS(4);
+	printf("\n\n");
+
 
 	//printf("\n");
 	//graph.PrintNodes();
 
 	//Pause before Program Exits
-	//system("pause");
+	system("pause");
 	return 0;
 }
