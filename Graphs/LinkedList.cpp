@@ -47,6 +47,7 @@ LinkedList::LinkedList(const LinkedList& otherLinkedList) {
 			to->key = from->key;
 			to->name = from->name;
 			to->weight = from->weight;
+			head->dest = from->dest;
 
 			from = from->next;
 		}
@@ -71,6 +72,7 @@ const LinkedList& LinkedList::operator=(const LinkedList& otherLinkedList) {
 		head->key = from->key;
 		head->name = from->name;
 		head->weight = from->weight;
+		head->dest = from->dest;
 
 		to = head;
 		from = from->next;
@@ -92,7 +94,7 @@ const LinkedList& LinkedList::operator=(const LinkedList& otherLinkedList) {
 
 }
 
-void LinkedList::Insert(int data, string name, int weight) {
+void LinkedList::Insert(int data, int dest, string name, int weight) {
 	//Narrative: Inserts a node into the linked list at the head
 	//	Pre - condition : data has a value and list initialized
 	//	Post - condition : a node with key = data inserted into list, length updated
@@ -101,6 +103,7 @@ void LinkedList::Insert(int data, string name, int weight) {
 	temp->key = data;
 	temp->name = name;
 	temp->weight = weight;
+	temp->dest = dest;
 	temp->next = nullptr;
 	//printf("Inserting %i, %s", temp->key, temp->name.c_str());
 	length++;
@@ -221,4 +224,8 @@ void LinkedList::CurrentNext() {
 		currentNode = currentNode->next;
 	else
 		ResetCurrent();
+}
+
+NodePtr LinkedList::ReturnHead() {
+	return head;
 }

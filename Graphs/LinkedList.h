@@ -8,21 +8,17 @@
 
 using namespace std;
 #include <string>
+#include "LLnode.h"
 
 class LinkedList
 {
-
-private:
-	struct LLNode;
-	typedef LLNode* NodePtr;
-
 public:
 	LinkedList();
 	~LinkedList();
 	LinkedList(const LinkedList& otherlinkedlist);
 	const LinkedList& operator=(const LinkedList& otherLinkedList);
 
-	void Insert(int data, string name, int weight);
+	void Insert(int data, int dest, string name, int weight);
 	bool SearchKey(int key);
 	bool SearchName(string name);
 	void PrintList();
@@ -33,15 +29,9 @@ public:
 	void ResetCurrent();
 	int  ReturnCurrent();
 	void CurrentNext();
+	NodePtr ReturnHead();
 
 private:
-	struct LLNode {
-		int key;
-		string name;
-		int weight;
-		NodePtr next;
-	};
-
 	NodePtr head;
 	int length;
 	NodePtr currentNode;

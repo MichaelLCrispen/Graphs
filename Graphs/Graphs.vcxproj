@@ -118,6 +118,7 @@
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="Graph.cpp" />
     <ClCompile Include="LinkedList.cpp" />
+    <ClCompile Include="LLNode.h" />
     <ClCompile Include="Queue.cpp" />
   </ItemGroup>
   <ItemGroup>

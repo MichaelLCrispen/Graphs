@@ -1,5 +1,6 @@
-#include "Graph.h"
-
+﻿#include "Graph.h"
+#include "LinkedList.h"
+#include<iostream>
 
 
 Graph::Graph(int tempnumNodes, string labels, string verticies){
@@ -8,17 +9,18 @@ Graph::Graph(int tempnumNodes, string labels, string verticies){
 	//	Post - condition : The Graph will be constructed with the values entered
 
 	numNodes = tempnumNodes;
+	numVerticies = 0;
 
 	size_t pos = 0;
 	int i = 0;
 	while ((pos = labels.find(',')) != string::npos) {
 		string label = labels.substr(0, pos);
 		//printf("Inserting : (%i , %s) \n", i, label.c_str());
-		Nodes.Insert(i++, label, 1);
+		Nodes.Insert(i++,0, label, 1);
 		labels.erase(0, pos + 1);
 	}
 	//printf("Inserting : (%i , %s) \n", i, labels.c_str());
-	Nodes.Insert(i++, labels, 1);
+	Nodes.Insert(i++, 0, labels, 1);
 
 
 	AdjList = new LinkedList[numNodes];
@@ -51,22 +53,25 @@ Graph::Graph(int tempnumNodes, string labels, string verticies){
 		//printf("NODE 1: %i , Node 2: %i, Weight : %i \n" , node1, node2, weight);
 
 		verticies = verticies.substr(found + 1, verticies.length() - 1);
+		numVerticies++;
 	}
 
 }
 
 
 Graph::~Graph(){
+	delete [] AdjList;
+	AdjList = NULL;
 }
 
 
-void Graph::AddEdge(int node1, int node2, int weight){
+void Graph::AddEdge(int node1, int node2,  int weight){
 	//  Narrative: This will add an edge to the graph, This is a undirected approach
 	//	Pre - condition : Node1 and Node2 are nodes in the graph
 	//	Post - condition : A Edge will be added between node1 and node2 with weight of weight
 
-	AdjList[node1].Insert(node2, Nodes.FindLabel(node2), weight);
-	AdjList[node2].Insert(node1, Nodes.FindLabel(node1), weight);
+	AdjList[node1].Insert(node2,node1, Nodes.FindLabel(node2), weight);
+	AdjList[node2].Insert(node1,node2, Nodes.FindLabel(node1), weight);
 
 	return;
 }
@@ -125,5 +130,17 @@ void Graph::BFS(int rootNode) {
 		}
 		AdjList[v].ResetCurrent();
 	}
+	delete[] visited;
 	return;
+}
+
+
+void Graph::Prims(int x) {
+
+	int V = numVerticies; // Get the number of vertices in graph 
+	int* parent = new int[V]; // Array to store constructed MST 
+	int* key = new int[V]; // Key values used to pick minimum weight edge in cut 
+
+	//Could not get this funtion working. 
+
 }

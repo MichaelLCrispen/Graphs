@@ -38,11 +38,16 @@ int main() {
 	graph.PrintNodes();
 	printf("\n\n");
 	graph.PrintEdges();
+	printf("\n\n");
 
-	printf("\n\nBFS using node 4 as root \n");
+
+	printf("BFS using node 4 as root \n");
 	graph.BFS(4);
 	printf("\n\n");
 
+	printf("Prims Algorithm : \n\n");
+	graph.Prims(0);
+	printf("\n\n");
 
 	//printf("\n");
 	//graph.PrintNodes();

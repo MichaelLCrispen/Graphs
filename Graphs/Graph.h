@@ -3,6 +3,7 @@
 #define GRAPH_H
 
 #include "LinkedList.h"
+#include "LLNode.h"
 #include "Queue.h"
 #include <string>
 
@@ -15,12 +16,13 @@ public:
 	void PrintNodes();
 	void PrintEdges();
 	void BFS(int rootNode);
-
+	void Prims(int x);
 
 private:
 	LinkedList* AdjList;
 	LinkedList Nodes;
 	int numNodes;
+	int numVerticies;
 };
 
 #endif
